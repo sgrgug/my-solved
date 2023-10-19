@@ -1,44 +1,41 @@
 <?php
 
-// class Solution {
+class Solution {
 
-//     /**
-//      * @param Integer[] $nums
-//      * @return String
-//      */
-//     function largestNumber($nums) {
+    /**
+     * @param Integer[] $nums
+     * @return String
+     */
+    function largestNumber($nums) {
 
-//         $final = [];
+        $final = [];
 
-//         foreach($nums as $key => $num)
-//         {
-//             if($num < 10)
-//             {
-//                 $final[] = $num[$key];
-//             } else {
-//                 $final[] = $num / 10;
-//                 // $final[] = $num % 2;
-//             }
+        for($i = 0; $i < count($nums); $i++)
+        {
+            if($nums[$i] < 10)
+            {
+                $final[] = $nums[$i];
+            } else {
+                $final[] = (int)($nums[$i] / 10);
+                $final[] = $nums[$i] % 10;
+            }
 
-//             return $final;
-//         }
+        }
+        
+        return $final;
+    }
+}
 
-//     }
-// }
+$solution = new Solution();
 
-// $solution = new Solution();
-
-// $nums = [34,2,50,7];
-// // $nums = 344;
+$nums = [34,2,50,7];
 
 // print_r($solution->largestNumber($nums));
+// foreach($solution->largestNumber($nums) as $key => $val)
+// {
+//     echo $val;
+//     echo "<br />";
+// }
 
-
-$nums = ['s', 'g', 'd', 'e'];
-$a = [];
-
-foreach($nums as $key => $num)
-{
-    $a[] = $num[$key];
-}
-print_r($a);
+$va = sort($solution->largestNumber($nums));
+print_r($va);
