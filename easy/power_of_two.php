@@ -28,6 +28,6 @@ class Solution {
 
 $solution = new Solution();
 
-$n = 3;
+$n = 2;
 
 print_r($solution->isPowerOfTwo($n));
