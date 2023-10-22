@@ -19,7 +19,6 @@ class Solution {
             }
         }
 
-        echo "<pre>";
         return $final;
 
     }

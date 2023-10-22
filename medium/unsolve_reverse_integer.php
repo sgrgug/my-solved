@@ -40,7 +40,6 @@ class Solution {
         rsort($a);
 
         $intV = implode("", $a);
-
         $intd = intval($intV);
 
         return $intd;
