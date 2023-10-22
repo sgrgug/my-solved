@@ -9,17 +9,12 @@ class Solution {
     function reverse($x) {
         
         $sign = $x >= 0 ? true : false;
+        if ($x < 0) {
+            $x = -$x;
+        }
 
-        // if(!$sign)
-        // {
-        //     return "sano xa";
-        // } else {
-        //     return "xaina";
-        // }
-        
-        // $x = $x % 10 == 0 ? $x / 10 : $x;
-        
-        // $x = (string)$x;
+        return strlen((string)$x);
+
         $final = [];
         
         for($i = 0; $i < strlen((string)$x); $i++)
@@ -40,15 +35,17 @@ class Solution {
         rsort($a);
 
         $intV = implode("", $a);
+
         $intd = intval($intV);
 
-        return $intd;
+        // return $x;
 
-        if(!$sign)
+        if($sign)
         {
             return $intd;
         } else {
             return "-".$intd;
+            // return "sdf";
         }
 
         // $x = (string)$x;
@@ -83,6 +80,6 @@ class Solution {
 
 $solution = new Solution();
 
-$x = 1200;
+$x = -1200000;
 
 print_r($solution->reverse($x));
