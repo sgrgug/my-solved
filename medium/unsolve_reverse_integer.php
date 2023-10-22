@@ -9,6 +9,13 @@ class Solution {
     function reverse($x) {
         
         $sign = $x >= 0 ? true : false;
+
+        // if(!$sign)
+        // {
+        //     return "sano xa";
+        // } else {
+        //     return "xaina";
+        // }
         
         // $x = $x % 10 == 0 ? $x / 10 : $x;
         
@@ -27,26 +34,51 @@ class Solution {
             }
         }
         
-        for($j = 0; $j < strlen((string)$x); $j++)
-        {
-            $final[] = $x[$j];
-        }
+        // Convert the integer to a string and then split it into an array
+        $a = str_split((string)$x);
         
+        rsort($a);
+
+        $intV = implode("", $a);
+
+        $intd = intval($intV);
+
+        return $intd;
+
+        if(!$sign)
+        {
+            return $intd;
+        } else {
+            return "-".$intd;
+        }
+
+        // $x = (string)$x;
+
+        // for($j = 0; $j < strlen($x); $j++)
+        // {
+        //     // $final[] = $x[$j];
+        //     echo $x;
+        //     echo "<br />";
+        // }
+        
+        // $int = intval(implode("", $final));
+        // return $int;
+
         // for($i = 0; $i < strlen($x); $i++)
         // {
         //     $final[] = $x[$i];
         // }
 
-        rsort($final);
+        // rsort($final);
 
-        $int = intval(implode("", $final));
+        // $int = intval(implode("", $final));
 
-        if($sign)
-        {
-            return $int;
-        } else {
-            return "-".$int;
-        }
+        // if($sign)
+        // {
+        //     return $int;
+        // } else {
+        //     return "-".$int;
+        // }
     }
 }
 
