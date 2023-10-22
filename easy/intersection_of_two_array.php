@@ -21,7 +21,6 @@ class Solution {
 
         echo "<pre>";
         return $final;
-        echo "</pre>";
 
     }
 }
