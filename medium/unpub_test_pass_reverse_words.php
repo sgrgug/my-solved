@@ -12,7 +12,7 @@ class Solution {
         $s = explode(" ", $s);
         $s = array_reverse($s);
 
-        $s = implode(" ", $s);
+        $s = trim(implode(" ", $s));
 
         return $s;
     }
@@ -21,6 +21,6 @@ class Solution {
 $solution = new Solution();
 
 // $s = "a good   example";
-$s = "  hello world  ";
+$s = " hello world ";
 
 print_r($solution->reverseWords($s));
