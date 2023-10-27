@@ -8,17 +8,34 @@ class Solution {
      */
     function isHappy($n) {
 
-        $newInt = [];
-        $n = str_split((string)$n);
+        if($n < 10)
+        {
 
-        foreach($n as $key => $val){
+        }else {
 
-            $integer = $val[$key];
+            $modified = [];
+            $sum = 0;
 
-            $newInt[] = $newInt[$key] ^ 2 + (int)$integer ^ 2;
+            $n = (string)$n;
+            $n = str_split($n);
+
+            foreach($n as $key => $val)
+            {
+                $modified[] = (int)$val * (int)$val;
+            }
+
+            foreach($modified as $key => $final)
+            {
+                $sum += $final;
+            }
+
+            if($sum === 1)
+            {
+                return true;
+            } else {
+                $this->isHappy($sum);
+            }
         }
-
-        return $newInt;
         
     }
 }
