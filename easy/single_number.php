@@ -1,42 +1,31 @@
 <?php
 
-/**
- * Given a non-empty array of integers nums, every element appears twice except for one. Find that single one. 
- * You must implement a solution with a linear runtime complexity and use only constant extra space.
- */
-
 class Solution {
-
     /**
      * @param Integer[] $nums
      * @return Integer
      */
     function singleNumber($nums) {
+        $result = 0;
 
-        for ($i = 0; $i < count($nums); $i++) {
-            $isUnique = true;
-            
-            // Step 2: Check if the current integer is unique
-            for ($j = 0; $j < count($nums); $j++) {
-                if ($i !== $j && $nums[$i] == $nums[$j]) {
-                    $isUnique = false;
-                    break;
-                }
-            }
-            
-            // Step 3: If the integer is unique, add it to the result array
-            if ($isUnique) {
-                $uniqueIntegers = $nums[$i];
-            }
+        foreach ($nums as $num) {
+            $result ^= $num;
         }
 
-        return $uniqueIntegers;
-
+        return $result;
     }
 }
 
 $solution = new Solution();
 
-$nums = [4,1,2,1,2];
+// Example 1
+$nums1 = [2, 2, 1];
+echo $solution->singleNumber($nums1) . "\n"; // Output: 1
 
-print_r($solution->singleNumber($nums));
+// Example 2
+$nums2 = [4, 1, 2, 1, 2];
+echo $solution->singleNumber($nums2) . "\n"; // Output: 4
+
+// Example 3
+$nums3 = [1];
+echo $solution->singleNumber($nums3) . "\n"; // Output: 1
